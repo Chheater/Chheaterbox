@@ -8,6 +8,7 @@ LABEL com.github.containers.toolbox="true" \
 COPY extra-packages /
 RUN dnf upgrade
 RUN curl https://getmic.ro | bash
+RUN mv /micro /usr/bin/
 #RUN dnf install -y $(cat /extra-packages)
 #RUN rm /extra-packages
 

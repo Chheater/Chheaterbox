@@ -9,7 +9,7 @@ COPY extra-packages /
 RUN dnf upgrade
 RUN curl https://getmic.ro | bash
 RUN mv /micro /usr/bin/
-#RUN dnf install -y $(cat /extra-packages)
+RUN dnf install -y $(cat /extra-packages)
 #RUN rm /extra-packages
 
 #RUN   ln -fs /bin/sh /usr/bin/sh && \

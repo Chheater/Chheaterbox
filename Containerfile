@@ -7,7 +7,8 @@ LABEL com.github.containers.toolbox="true" \
 
 COPY extra-packages /
 RUN dnf upgrade
-RUN dnf install -y $(cat /extra-packages)
+RUN curl https://getmic.ro | bash
+#RUN dnf install -y $(cat /extra-packages)
 #RUN rm /extra-packages
 
 #RUN   ln -fs /bin/sh /usr/bin/sh && \

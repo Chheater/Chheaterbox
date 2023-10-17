@@ -1,4 +1,4 @@
-FROM quay.io/toolbx-images/debian-toolbox:unstable
+FROM quay.io/toolbx-images/almalinux-toolbox:9
 
 LABEL com.github.containers.toolbox="true" \
       usage="This image is meant to be used with the toolbox or distrobox command" \
@@ -6,7 +6,7 @@ LABEL com.github.containers.toolbox="true" \
       maintainer="jorge.castro@gmail.com"
 
 COPY extra-packages /
-RUN apt update && apt upgrade 
+RUN dnf upgrade
     #grep -v '^#' /extra-packages | xargs apk add
 #RUN rm /extra-packages
 

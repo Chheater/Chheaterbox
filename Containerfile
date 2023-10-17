@@ -5,9 +5,9 @@ LABEL com.github.containers.toolbox="true" \
       summary="A cloud-native terminal experience" \
       maintainer="jorge.castro@gmail.com"
 
-#COPY extra-packages /
-#RUN apk update && \
-    #apk upgrade && \
+COPY extra-packages /
+RUN apt update && \
+    apt upgrade 
     #grep -v '^#' /extra-packages | xargs apk add
 #RUN rm /extra-packages
 

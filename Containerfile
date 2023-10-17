@@ -6,8 +6,7 @@ LABEL com.github.containers.toolbox="true" \
       maintainer="jorge.castro@gmail.com"
 
 COPY extra-packages /
-RUN apt update && \
-    apt upgrade 
+RUN apt update && apt upgrade 
     #grep -v '^#' /extra-packages | xargs apk add
 #RUN rm /extra-packages
 

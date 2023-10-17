@@ -1,4 +1,4 @@
-FROM quay.io/toolbx-images/almalinux-toolbox:9
+FROM quay.io/toolbx-images/opensuse-toolbox:tumbleweed
 
 LABEL com.github.containers.toolbox="true" \
       usage="This image is meant to be used with the toolbox or distrobox command" \
@@ -6,10 +6,10 @@ LABEL com.github.containers.toolbox="true" \
       maintainer="jorge.castro@gmail.com"
 
 COPY extra-packages /
-RUN dnf upgrade
+RUN zypper dup
 RUN curl https://getmic.ro | bash
 RUN mv /micro /usr/bin/
-RUN dnf install -y $(cat /extra-packages)
+RUN zypper install -y $(cat /extra-packages)
 #RUN rm /extra-packages
 
 #RUN   ln -fs /bin/sh /usr/bin/sh && \

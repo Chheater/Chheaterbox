@@ -5,8 +5,8 @@ LABEL com.github.containers.toolbox="true" \
       summary="A cloud-native terminal experience" \
       maintainer="jorge.castro@gmail.com"
 
-#COPY extra-packages /
-#RUN zypper dup
+COPY extra-packages /
+RUN pacman -Syu
 #RUN curl https://getmic.ro | bash
 #RUN mv /micro /usr/bin/
 #RUN zypper install -y $(cat /extra-packages)

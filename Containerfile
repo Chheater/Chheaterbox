@@ -6,7 +6,11 @@ LABEL com.github.containers.toolbox="true" \
       maintainer="jorge.castro@gmail.com"
 
 COPY extra-packages /
-RUN sudo pacman -Syu --noconfirm
+RUN echo -e "\n[chaotic-aur]\nInclude = /etc/pacman.d/chaotic-mirrorlist" | sudo tee -a /etc/pacman.conf
+RUN  pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com && \
+	 pacman-key --lsign-key 3056513887B78AEB && \
+	 pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst' 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
+RUN pacman -Syu
 #RUN curl https://getmic.ro | bash
 #RUN mv /micro /usr/bin/
 #RUN zypper install -y $(cat /extra-packages)

@@ -9,6 +9,7 @@ RUN sudo pacman -Syu --noconfirm
 RUN sudo pacman-key --init
 COPY extra-packages /
 RUN sudo pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
+RUN sudo pacman-key --lsign-key 3056513887B78AEB
 #RUN curl https://getmic.ro | bash
 #RUN mv /micro /usr/bin/
 #RUN zypper install -y $(cat /extra-packages)

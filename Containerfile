@@ -11,6 +11,8 @@ COPY extra-packages /
 RUN sudo pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
 RUN sudo pacman-key --lsign-key 3056513887B78AEB
 RUN sudo pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst' 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst' --noconfirm
+RUN RUN echo -e "[chaotic-aur]\nInclude = /etc/pacman.d/chaotic-mirrorlist" >> /etc/pacman.d
+
 #RUN curl https://getmic.ro | bash
 #RUN mv /micro /usr/bin/
 #RUN zypper install -y $(cat /extra-packages)

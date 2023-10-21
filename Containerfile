@@ -8,6 +8,7 @@ LABEL com.github.containers.toolbox="true" \
 RUN sudo pacman -Syu --noconfirm
 RUN sudo pacman-key --init
 COPY extra-packages /
+RUN sudo curl -o /etc/pacman.d/chaotic-mirrorlist https://cdn-mirror.chaotic.cx/mirrorlists/chaotic-mirrorlist-latest
 RUN sudo echo -e "\n[chaotic-aur]\nInclude = /etc/pacman.d/chaotic-mirrorlist" | sudo tee -a /etc/pacman.conf
 RUN sudo pacman-key --lsign-key 3056513887B78AEB
 RUN sudo pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst' 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'

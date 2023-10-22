@@ -15,7 +15,7 @@ RUN sudo echo -e "[chaotic-aur]\nInclude = /etc/pacman.d/chaotic-mirrorlist" >> 
 #
 #RUN curl https://getmic.ro | bash
 #RUN mv /micro /usr/bin/
-#RUN zypper install -y $(cat /extra-packages)
+RUN pacman -S $(cat /extra-packages)
 #RUN rm /extra-packages
 
 #RUN   ln -fs /bin/sh /usr/bin/sh && \
